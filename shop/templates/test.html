@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ma page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <ul></ul>
+    <script>
+      $(document).ready(function() {
+        $.getJSON('/api/category/', function(data) {
+          var categories = data;
+          $.each(categories, function(index, category) {
+             $('ul').append('<li>' + category.name + '</li>');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
